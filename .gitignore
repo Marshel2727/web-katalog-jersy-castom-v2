@@ -10,3 +10,5 @@ vendor/
 .env.*
 !.env.example
 !.env.docker.example
+!.env.production.example
+deploy-backup/

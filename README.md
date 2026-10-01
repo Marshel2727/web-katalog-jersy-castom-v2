@@ -1,5 +1,13 @@
 # BP Sport
 
+## Deploy Vercel dan VPS
+
+Konfigurasi produksi terpisah tersedia di `compose.production.yaml` untuk Laravel, MySQL, dan HTTPS Caddy. Frontend di Vercel memakai Root Directory `frontend`. Ikuti [panduan deploy](deploy/README.md) untuk environment/domain, backup data Docker lokal, restore database dan gambar, serta pemeriksaan login admin. Salin `.env.production.example` ke `.env.production` di VPS dan isi nilainya; file contoh frontend ada di `frontend/.env.production.example`.
+
+## Deploy Vercel dan VPS
+
+Konfigurasi produksi terpisah tersedia di `compose.production.yaml` untuk Laravel, MySQL, dan HTTPS Caddy. Frontend di Vercel memakai Root Directory `frontend`. Ikuti [panduan deploy](deploy/README.md) untuk environment/domain, backup data Docker lokal, restore database dan gambar, serta pemeriksaan login admin. Salin `.env.production.example` ke `.env.production` di VPS dan isi nilainya; file contoh frontend ada di `frontend/.env.production.example`.
+
 ## Docker backend dan MySQL
 
 Konfigurasi Docker tersedia pada compose.yaml dan backend/Dockerfile. Panduan serta perintah PowerShell ada di [backend/docker/README.md](backend/docker/README.md). Backend dan MySQL dapat dijalankan tanpa PHP atau Composer pada PATH Windows.

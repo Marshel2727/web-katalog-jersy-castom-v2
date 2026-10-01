@@ -13,6 +13,9 @@ mkdir -p bootstrap/cache storage/app/private storage/app/public \
 chown -R www-data:www-data storage bootstrap/cache
 
 php artisan config:clear --no-ansi
+if [ "${APP_ENV:-local}" = "production" ]; then
+    php artisan config:cache --no-ansi
+fi
 if [ ! -L public/storage ]; then
     php artisan storage:link --no-ansi
 fi

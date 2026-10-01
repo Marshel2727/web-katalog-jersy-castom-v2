@@ -1,0 +1,109 @@
+name: bp-sport-production
+
+services:
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-web-katalog-jersy}
+      MYSQL_USER: ${DB_USERNAME:-bp_app}
+      MYSQL_PASSWORD: ${DB_PASSWORD:?Isi DB_PASSWORD di .env.production}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Isi MYSQL_ROOT_PASSWORD di .env.production}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - database
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - 'MYSQL_PWD="$${MYSQL_PASSWORD}" mysql --host=127.0.0.1 --user="$${MYSQL_USER}" --database="$${MYSQL_DATABASE}" --execute="SELECT 1" >/dev/null 2>&1'
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    environment:
+      APP_NAME: BP Sport
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_KEY: ${APP_KEY:?Isi APP_KEY di .env.production}
+      APP_URL: https://${API_DOMAIN:?Isi API_DOMAIN di .env.production}
+      FRONTEND_URL: https://${FRONTEND_DOMAIN:?Isi FRONTEND_DOMAIN di .env.production}
+      SANCTUM_STATEFUL_DOMAINS: ${FRONTEND_DOMAIN},${API_DOMAIN}
+      TRUSTED_PROXIES: ${PROXY_IP:-172.30.50.2}
+      DB_CONNECTION: mysql
+      DB_URL: ""
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DB_DATABASE: ${DB_DATABASE:-web-katalog-jersy}
+      DB_USERNAME: ${DB_USERNAME:-bp_app}
+      DB_PASSWORD: ${DB_PASSWORD:?Isi DB_PASSWORD di .env.production}
+      SESSION_DRIVER: database
+      SESSION_LIFETIME: "120"
+      SESSION_DOMAIN: .${ROOT_DOMAIN:?Isi ROOT_DOMAIN di .env.production}
+      SESSION_SECURE_COOKIE: "true"
+      SESSION_HTTP_ONLY: "true"
+      SESSION_SAME_SITE: lax
+      CACHE_STORE: database
+      QUEUE_CONNECTION: database
+      FILESYSTEM_DISK: local
+      LOG_CHANNEL: stderr
+      LOG_LEVEL: warning
+      MAIL_MAILER: log
+    volumes:
+      - backend_storage:/var/www/backend/storage
+    networks:
+      - database
+      - proxy
+    depends_on:
+      mysql:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - php
+        - -r
+        - 'exit(@file_get_contents("http://127.0.0.1/up", false, stream_context_create(["http" => ["timeout" => 3]])) === false ? 1 : 0);'
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      API_DOMAIN: ${API_DOMAIN:?Isi API_DOMAIN di .env.production}
+      ACME_EMAIL: ${ACME_EMAIL:?Isi ACME_EMAIL di .env.production}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      proxy:
+        ipv4_address: ${PROXY_IP:-172.30.50.2}
+    depends_on:
+      backend:
+        condition: service_healthy
+
+networks:
+  database:
+    internal: true
+  proxy:
+    ipam:
+      config:
+        - subnet: ${DOCKER_SUBNET:-172.30.50.0/24}
+
+volumes:
+  mysql_data:
+  backend_storage:
+  caddy_data:
+  caddy_config:

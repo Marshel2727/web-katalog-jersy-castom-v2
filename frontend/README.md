@@ -92,6 +92,8 @@ Hasil build berada di `.next` dan memerlukan runtime Node.js. `npm.cmd run previ
 
 Frontend tidak lagi menggunakan static export atau hosting folder `out`. Pada Vercel, gunakan Root Directory `frontend` dan atur alamat backend publik yang dapat dijangkau dari browser serta server Vercel. Publikasi belum termasuk perubahan ini.
 
+Konfigurasi Vercel tersedia di `vercel.json` dan contoh environment di `.env.production.example`. Runtime memakai Node 24.x. Panduan backend HTTPS, domain cookie admin, serta pemindahan data dan gambar tersedia di [panduan deploy produksi](../deploy/README.md).
+
 Pengujian browser saat implementasi mencakup halaman pelanggan, pagination, pencarian, hasil kosong/reset filter, detail desain, dan pengalihan admin tanpa sesi ke login. Pengujian login berhasil, CRUD admin, serta upload melalui browser belum dilakukan sesuai batas yang dipilih pengguna.
 
 FAQ masih menggunakan jQuery dengan event dan selector lokal; simulator tetap memakai visualisasi 2D serta tombol konsultasi WhatsApp.
