@@ -111,10 +111,10 @@ Bisa konsultasi estimasi harga, opsi bahan dry-fit, serta minimal order untuk ti
       <div className="container">
         <div className="customizer-header">
           <div className="customizer-badge">
-            <Sparkles size={14} /> LIVE JERSEY SIMULATOR
+            <Sparkles size={14} /> 05 / SIMULATOR DESAIN JERSEY
           </div>
           <h2>
-            Desain jersey tim kamu. <span className="lime">Langsung coba di sini.</span>
+            Coba simulasi desain tim kamu. <span className="lime">Langsung di sini.</span>
           </h2>
           <p>
             Ketik nama & nomor punggung, ganti kombinasi warna aksen, dan lihat perubahannya secara

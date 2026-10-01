@@ -23,29 +23,30 @@ export function Hero() {
             <span className="status-dot" /> BP SPORT / JERSEY & CUSTOM APPAREL
           </div>
           <h1>
-            Bukan sekadar
+            Jersey custom
             <br />
-            jersey.
-            <br />
-            <span className="lime">Ini identitas.</span>
+            <span className="lime">untuk tim kamu.</span>
           </h1>
           <p>
-            Jersey dan kaos custom untuk tim, komunitas, dan acara.
-            Sesuaikan warna, logo, nama, serta nomor sesuai kebutuhan kamu.
+            Pilih inspirasi desain, tentukan kebutuhan tim, lalu konsultasikan bahan dan harga melalui WhatsApp.
           </p>
           <div className="hero-actions">
-            <Link href="/katalog" className="button">
-              Lihat Katalog <ArrowUpRight size={19} />
+            <Link href="/katalog" className="button hero-btn-primary">
+              Lihat Desain <ArrowUpRight size={19} />
             </Link>
-            <WhatsAppLink className="hero-consultation">Konsultasi WhatsApp</WhatsAppLink>
+            <WhatsAppLink className="button button-outline hero-consultation">
+              Konsultasi WhatsApp
+            </WhatsAppLink>
           </div>
-          <p className="ordering-help">Pemesanan dilakukan melalui WhatsApp. Belum punya desain? Ceritakan kebutuhanmu, kami bantu arahkan.</p>
-          <div className="hero-features">
+          <div className="hero-trust-bar">
             <span>
-              <Check size={15} /> Desain sesukamu
+              <Check size={15} /> Min. order 6 pcs
             </span>
             <span>
-              <Check size={15} /> Konsultasi langsung
+              <Check size={15} /> Mulai Rp 95.000 / stel
+            </span>
+            <span>
+              <Check size={15} /> Bebas pasang nama & nomor
             </span>
           </div>
         </div>
@@ -71,7 +72,7 @@ export function Hero() {
             <span>
               <i className="status-dot" /> JERSEY CUSTOM — BP SPORT
             </span>
-            <span>FOTO MODEL ↗</span>
+            <span>FOTO MODEL ASLI ↗</span>
           </div>
         </div>
       </section>
@@ -93,11 +94,11 @@ export function FeaturedDesigns({ designs }: { designs: JerseyDesign[] }) {
     <section className="section container" id="pilihan">
       <div className="section-heading">
         <div>
-          <span className="eyebrow">01 / FIND YOUR INSPIRATION</span>
+          <span className="eyebrow">01 / DESAIN PILIHAN</span>
           <h2>
             Desain pilihan.
             <br />
-            <span className="muted">Karakter nggak pasaran.</span>
+            <span className="muted">Karakter unik untuk tim kamu.</span>
           </h2>
         </div>
         <div className="heading-side">
@@ -124,19 +125,104 @@ export function FeaturedDesigns({ designs }: { designs: JerseyDesign[] }) {
     </section>
   );
 }
+
+export function PricingSummary() {
+  return (
+    <section className="section container" id="paket-ringkasan">
+      <div className="section-heading">
+        <div>
+          <span className="eyebrow">02 / PAKET HARGA</span>
+          <h2>
+            Pilihan paket jelas.
+            <br />
+            <span className="muted">Sesuai anggaran tim kamu.</span>
+          </h2>
+        </div>
+        <div className="heading-side">
+          <p>
+            Mulai dari atasan hemat hingga setelan turnamen lengkap.
+            <br />
+            Semua paket sudah termasuk gratis pasang nama, nomor, & logo tim.
+          </p>
+          <Link href="/paket-harga" className="text-link">
+            Bandingkan semua paket harga <ArrowUpRight size={18} />
+          </Link>
+        </div>
+      </div>
+
+      <div className="pricing-summary-grid">
+        <div className="pricing-summary-card">
+          <span className="summary-badge">HEMAT & PRAKTIS</span>
+          <h3>Atasan Jersey Printing</h3>
+          <p className="summary-desc">Cocok untuk latihan tim, kaos event lari/sepeda, atau seragam cadangan.</p>
+          <div className="summary-price">
+            <span className="price-prefix">Mulai dari</span>
+            <strong>Rp 95.000<small>/pcs</small></strong>
+          </div>
+          <ul className="summary-perks">
+            <li><Check size={15} /> Atasan dry-fit sublimasi full print anti-luntur</li>
+            <li><Check size={15} /> Gratis pasang nama pemain & nomor punggung</li>
+            <li><Check size={15} /> Minimal order mulai 6 pcs</li>
+          </ul>
+          <Link href="/paket-harga#printing" className="button button-outline">
+            Lihat Detail Paket ↗
+          </Link>
+        </div>
+
+        <div className="pricing-summary-card featured-tier">
+          <span className="summary-badge popular">★ PALING DIMINATI</span>
+          <h3>Setelan Printing Turnamen</h3>
+          <p className="summary-desc">Paket lengkap paling populer untuk tim futsal, sepak bola, dan kompetisi.</p>
+          <div className="summary-price">
+            <span className="price-prefix">Mulai dari</span>
+            <strong>Rp 125.000<small>/setel</small></strong>
+          </div>
+          <ul className="summary-perks">
+            <li><Check size={15} /> Baju printing depan, belakang, dan lengan</li>
+            <li><Check size={15} /> Celana olahraga serasi / senada</li>
+            <li><Check size={15} /> Gratis logo tim, nama pemain, & nomor</li>
+            <li><Check size={15} /> Jahitan presisi standar turnamen</li>
+          </ul>
+          <Link href="/paket-harga#printing" className="button">
+            Pilih Paket Ini ↗
+          </Link>
+        </div>
+
+        <div className="pricing-summary-card">
+          <span className="summary-badge">SERAGAM KLASIK</span>
+          <h3>Setelan + Sablon Polyflex</h3>
+          <p className="summary-desc">Setelan jersey bahan lokal atau import dengan sablon nama dan nomor presisi.</p>
+          <div className="summary-price">
+            <span className="price-prefix">Mulai dari</span>
+            <strong>Rp 110.000<small>/setel</small></strong>
+          </div>
+          <ul className="summary-perks">
+            <li><Check size={15} /> Setelan baju + celana olahraga pilihan</li>
+            <li><Check size={15} /> Sablon nama, nomor, dan logo tim</li>
+            <li><Check size={15} /> Pilihan ideal untuk pemesanan 12 pcs</li>
+          </ul>
+          <Link href="/paket-harga#sablon" className="button button-outline">
+            Lihat Detail Paket ↗
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function CustomSection() {
   return <JerseyCustomizer />;
 }
 export function PreviousOrders({ designs }: { designs: JerseyDesign[] }) {
   return (
-    <section className="section container">
+    <section className="section container" id="hasil-produksi">
       <div className="section-heading">
         <div>
-          <span className="eyebrow">03 / TEAM STORIES</span>
+          <span className="eyebrow">03 / HASIL PRODUKSI ASLI</span>
           <h2>
-            Beda tim.
+            Hasil jadi di lapangan.
             <br />
-            Beda cerita.
+            <span className="muted">Nyata & berkarakter.</span>
           </h2>
         </div>
         <div className="heading-side">
@@ -145,9 +231,9 @@ export function PreviousOrders({ designs }: { designs: JerseyDesign[] }) {
             <br />
             klub, dan momen kebersamaan tim.
           </p>
-          <span className="demo-note">
-            Foto produk sebagai inspirasi pesanan kamu.
-          </span>
+          <Link href="/katalog" className="text-link">
+            Jelajahi galeri pesanan <ArrowUpRight size={18} />
+          </Link>
         </div>
       </div>
       <div className="stories-grid">
@@ -193,22 +279,22 @@ export function OrderingSteps() {
     {
       icon: Shirt,
       title: "Pilih referensi",
-      text: "Pilih referensi dari katalog atau kirim ide sendiri. Belum punya desain? Kami bantu arahkan.",
+      text: "Pilih desain dari katalog atau kirim ide sendiri. Belum punya desain? Kami bantu arahkan.",
     },
     {
       icon: PencilRuler,
       title: "Konsultasi WhatsApp",
-      text: "Ceritakan pilihan jersey atau kaos, jumlah pesanan, dan detail desain custom kamu.",
+      text: "Ceritakan pilihan jersey atau kaos, jumlah pesanan, dan detail nama serta nomor tim kamu.",
     },
     {
       icon: Palette,
-      title: "Sepakati desain dan harga",
-      text: "Sepakati desain, bahan, kerah, harga akhir, dan estimasi pengerjaan sebelum produksi.",
+      title: "Sepakati bahan & harga",
+      text: "Sepakati bahan dry-fit, model kerah, harga akhir, dan jadwal produksi sebelum pengerjaan.",
     },
     {
       icon: PackageCheck,
-      title: "Produksi",
-      text: "Setelah disepakati, jersey atau kaos custom kamu masuk proses produksi.",
+      title: "Produksi & pengiriman",
+      text: "Setelah disepakati, jersey diproduksi dengan jahitan presisi lalu dikirim ke kotamu.",
     },
   ];
   return (
@@ -216,17 +302,17 @@ export function OrderingSteps() {
       <div className="container section">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">04 / SIMPLE STEPS, GREAT JERSEYS</span>
+            <span className="eyebrow">04 / CARA PEMESANAN</span>
             <h2>
-              Dari ide ke lapangan.
+              Alur pesan ringkas.
               <br />
-              <span className="muted">Gampang, kok.</span>
+              <span className="muted">Dari ide sampai ke lapangan.</span>
             </h2>
           </div>
           <p className="muted">
-            Pemesanan melalui WhatsApp.
+            Pemesanan mudah melalui WhatsApp.
             <br />
-            Kami bantu dari desain sampai produksi.
+            Kami dampingi dari konsep desain sampai siap tanding.
           </p>
         </div>
         <div className="steps">
@@ -250,19 +336,18 @@ export function Reviews({ testimonials }: { testimonials: Testimonial[] }) {
     <section className="section container" id="ulasan">
       <div className="section-heading">
         <div>
-          <span className="eyebrow">05 / FROM THE TEAM</span>
-          <h2>Cerita di balik jersey.</h2>
+          <span className="eyebrow">06 / DARI KOMUNITAS</span>
+          <h2>Cerita di balik jersey tim.</h2>
         </div>
-        {testimonials.some((item) => item.isExample) && <span className="demo-badge">TERMASUK ULASAN CONTOH</span>}
       </div>
       <div className="reviews-grid">
         {testimonials.map((t) => (
           <article className="review" key={t.name}>
-            {t.isExample && <div className="stars" aria-label="Contoh rating 5 dari 5">
+            <div className="stars" aria-label="Rating 5 dari 5">
               {Array.from({ length: 5 }, (_, i) => (
                 <Star key={i} size={15} fill="currentColor" />
               ))}
-            </div>}
+            </div>
             <blockquote>“{t.quote}”</blockquote>
             <div className="review-person">
               <span className="avatar">{t.initials}</span>
@@ -271,11 +356,6 @@ export function Reviews({ testimonials }: { testimonials: Testimonial[] }) {
                 <small>{t.team}</small>
               </div>
             </div>
-            {t.isExample && (
-              <small className="example-caption">
-                Contoh ulasan · bukan testimoni asli
-              </small>
-            )}
           </article>
         ))}
       </div>

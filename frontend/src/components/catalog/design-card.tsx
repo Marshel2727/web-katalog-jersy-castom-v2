@@ -54,9 +54,14 @@ export function DesignCard({ design }: { design: JerseyDesign }) {
         <span>{design.color}</span>
         <span className="color-dot" style={{ background: design.accent }} />
       </div>
-      <p className="card-price">
-        Diskusikan harga <ArrowUpRight size={13} />
-      </p>
+      <div className="card-price-row">
+        <span className="card-price-anchor">
+          Mulai Rp 95.000<small>/stel</small>
+        </span>
+        <span className="card-price-cta">
+          Detail & Pesan <ArrowUpRight size={13} />
+        </span>
+      </div>
     </Link>
   );
 }
