@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+.npm-cache/
+*.tsbuildinfo
+next-env.d.ts
+.qa/
+vendor/
+.env
+.env.*
+!.env.example
+!.env.docker.example

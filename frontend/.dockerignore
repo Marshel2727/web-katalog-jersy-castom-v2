@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+.npm-cache
+.qa
+.git
+.env
+.env.*
+*.tsbuildinfo
+next-env.d.ts
+tests
+docs
+README.md

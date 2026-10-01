@@ -1,0 +1,247 @@
+{
+  "/images/katalog/aldenaire-berkerah/detail-1.jpg": {
+    "small": "/images/optimized/katalog/aldenaire-berkerah/detail-1-small.webp",
+    "large": "/images/optimized/katalog/aldenaire-berkerah/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoMABAAA8BgJZQC7AD0crgeJJrgAPaB63eZhpz6jAV3uToqk3gOfwcEnDGZ8TMdKJCV4KR9Wu23tsBUpyvCMuvtxducCeCRy89qAAAA"
+  },
+  "/images/katalog/aldenaire-berkerah/detail-2.jpg": {
+    "small": "/images/optimized/katalog/aldenaire-berkerah/detail-2-small.webp",
+    "large": "/images/optimized/katalog/aldenaire-berkerah/detail-2-large.webp",
+    "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAQAgCdASoMABAAA8BgJZwAAutLXcHYma4AAP5epZTg3P41XRI8m1kMDBQjwFAX9oDqNfPWVpIbPp64DwAAAA=="
+  },
+  "/images/katalog/aldenaire-berkerah/sampul.jpg": {
+    "small": "/images/optimized/katalog/aldenaire-berkerah/sampul-small.webp",
+    "large": "/images/optimized/katalog/aldenaire-berkerah/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoMABAAA8BgJZwAAfRn4cSG5oAA+dnyNsUrEbibngGaintpBVjbXjs4b7YewxMs9ZCuxBzz8Vg15AoRx/J867IA"
+  },
+  "/images/katalog/aldenaire-tanpa-lengan/detail-1.jpg": {
+    "small": "/images/optimized/katalog/aldenaire-tanpa-lengan/detail-1-small.webp",
+    "large": "/images/optimized/katalog/aldenaire-tanpa-lengan/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoMABAAA8BgJZwAAfy+0gucwQAA/p3OZl6dA/DVvEM/7Kv0qLgE5ZRyElA0Fw+jJDefLbNxr0atXCLjOU7v1NsbXCKsIzRcgAA="
+  },
+  "/images/katalog/aldenaire-tanpa-lengan/detail-2.jpg": {
+    "small": "/images/optimized/katalog/aldenaire-tanpa-lengan/detail-2-small.webp",
+    "large": "/images/optimized/katalog/aldenaire-tanpa-lengan/detail-2-large.webp",
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoMABAAA8BgJZwC7AC9jTTz2u3AAAD5sGwxCDAktCLDw8pOePXnrrR/QcRPS+glEQiclN2QzZaN7CyQeqNqC9RhDuCAAA=="
+  },
+  "/images/katalog/aldenaire-tanpa-lengan/sampul.jpg": {
+    "small": "/images/optimized/katalog/aldenaire-tanpa-lengan/sampul-small.webp",
+    "large": "/images/optimized/katalog/aldenaire-tanpa-lengan/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoMABAAA8BgJZwAAlessiZw+gAA/R1HjbOkTvgxNzFADoZI/FMiULl3PLTEucYWLvKkKONBzKhlIaVuE6HwAA=="
+  },
+  "/images/katalog/ditbinmas-biru/detail-1.jpg": {
+    "small": "/images/optimized/katalog/ditbinmas-biru/detail-1-small.webp",
+    "large": "/images/optimized/katalog/ditbinmas-biru/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAwAgCdASoMABAAA8BgJbACsAEQEstyF4eiAADN88+/LfNc0CAUrJIPeT4e4++rBtgVkn753Co0DiHEM1gMAh5Br5dxvrJWVd1vtMvmNAPvAJfXAlh3OnaRW5AWr6k2t7ywtPcRkMiUDiHenMPQVaxijgAAAA=="
+  },
+  "/images/katalog/ditbinmas-biru/detail-2.jpg": {
+    "small": "/images/optimized/katalog/ditbinmas-biru/detail-2-small.webp",
+    "large": "/images/optimized/katalog/ditbinmas-biru/detail-2-large.webp",
+    "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoMABAAA8BgJbACdAEDeGbg/1AA/tzZd/gxk7MFlC6ogCIiglHp0qCvLVkHx/GH/OrXhI26n/FEUy9FhsksMbkLBQ/a+izpaf+CKX5I+N4mkJ/WCKaJ3PSHCIwAAA=="
+  },
+  "/images/katalog/ditbinmas-biru/sampul.jpg": {
+    "small": "/images/optimized/katalog/ditbinmas-biru/sampul-small.webp",
+    "large": "/images/optimized/katalog/ditbinmas-biru/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwAgCdASoMABAAA8BgJbACdAERBv0n4KZ0dADN8x0zoibVF41hsG2YUJcIs8b+8/41hg55bkLCBv6gZfEKygIHHDnF1pwFKllBOWcaXEa/cSaGREYk7hwvCfshcAAA"
+  },
+  "/images/katalog/dpd-wi-hijau/sampul.jpg": {
+    "small": "/images/optimized/katalog/dpd-wi-hijau/sampul-small.webp",
+    "large": "/images/optimized/katalog/dpd-wi-hijau/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQAgCdASoMABAAA8BgJYwC7ADMiqMeMvQAAPzkwhZ+txM4cM2j/n52wzVZCWbhHx1qtJdXk3MSJdX5juceMxISgwMTYnB/fAqWhvTUK4rS97m/J/Slp3rmAAA="
+  },
+  "/images/katalog/garis-biru-putih/detail-1.jpg": {
+    "small": "/images/optimized/katalog/garis-biru-putih/detail-1-small.webp",
+    "large": "/images/optimized/katalog/garis-biru-putih/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoMABAAA8BgJZQAAY5LQCwpgAD8bzGo4z4dfILJamkByWMysamMIYFvYMbOUJICdbqFZmw7Zh/NkVAWeAxemzrKckZKdpdjKHjmgdqAAAA="
+  },
+  "/images/katalog/garis-biru-putih/detail-2.jpg": {
+    "small": "/images/optimized/katalog/garis-biru-putih/detail-2-small.webp",
+    "large": "/images/optimized/katalog/garis-biru-putih/detail-2-large.webp",
+    "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQAgCdASoMABAAA8BgJZgCdADdpzxZYSoAAPfEFxXDo/x5cisKdwsy7qdpfME5W8W2Sd4KRnTPCDN7JdU4QqKHSaf3o7OURDwmyFKjPVqdvSp1/ns4VRc0IClX1xT976jy4AXR3aAAAA=="
+  },
+  "/images/katalog/garis-biru-putih/detail-3.jpg": {
+    "small": "/images/optimized/katalog/garis-biru-putih/detail-3-small.webp",
+    "large": "/images/optimized/katalog/garis-biru-putih/detail-3-large.webp",
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoMABAAA8BgJZgCw7Db/xxzpcGAAP4LvRiqdptOgXBA2+IvmkxV7rrzvzvxdlwNGYILZFRI4UaTE5k8MOieyU499EhwLT/1gbjBzFgrp8Ktff8ajC9FoAAA"
+  },
+  "/images/katalog/garis-biru-putih/sampul.jpg": {
+    "small": "/images/optimized/katalog/garis-biru-putih/sampul-small.webp",
+    "large": "/images/optimized/katalog/garis-biru-putih/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoMABAAA8BgJZQCdAEV/7Ep7wAA/GbwoswoMXnRpiNBN0IWBPD+NxvpwMQ0QcZ7SQYVW9cKuant9g/tf9NPJl969shUV0aC52BSwAAA"
+  },
+  "/images/katalog/garis-merah-putih/detail-1.jpg": {
+    "small": "/images/optimized/katalog/garis-merah-putih/detail-1-small.webp",
+    "large": "/images/optimized/katalog/garis-merah-putih/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAgCdASoMABAAA8BgJYwCdAYu5weYJ7bkDqAA/M8wpvTNg1Zswx5OZn0SDcJiJT9PAF2wJG4EoB6E8IzUsAqEKfCJaNeDmmqo7BXE6XHIvUpVHkrVoRjPQAA="
+  },
+  "/images/katalog/garis-merah-putih/detail-2.jpg": {
+    "small": "/images/optimized/katalog/garis-merah-putih/detail-2-small.webp",
+    "large": "/images/optimized/katalog/garis-merah-putih/detail-2-large.webp",
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoMABAAA8BgJagCdADPIxElvAIAAPv3rXHIAwU3XZdZ8L7t+c3S/16xIhby8jEin8uFyw24af3/jMCXHIHlNbajVkSK+CFU0MA/a75lT+W6dI/J2WaX3QAA"
+  },
+  "/images/katalog/garis-merah-putih/detail-3.jpg": {
+    "small": "/images/optimized/katalog/garis-merah-putih/detail-3-small.webp",
+    "large": "/images/optimized/katalog/garis-merah-putih/detail-3-large.webp",
+    "blur": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAQCdASoMABAAA8BgJbACdADG6NxaAAD+a9bWkXAg823seM8WKRkziix50qs8JbUOMlm86bHSo0U8DOIZyRB3TNBrklaTloyIG5/j4vnP9OQfP4plLbMoAAA="
+  },
+  "/images/katalog/garis-merah-putih/sampul.jpg": {
+    "small": "/images/optimized/katalog/garis-merah-putih/sampul-small.webp",
+    "large": "/images/optimized/katalog/garis-merah-putih/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoMABAAA8BgJYgCdADaQDTPKAAA/G2gejOTtHcVNBIsQDkJWSQqVw3QHBE6qMm25fNaKDD/YDnIJaJaHaWgV01AvK1UkAAA"
+  },
+  "/images/katalog/grafis-putih-biru/detail-1.jpg": {
+    "small": "/images/optimized/katalog/grafis-putih-biru/detail-1-small.webp",
+    "large": "/images/optimized/katalog/grafis-putih-biru/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwAgCdASoMABAAA8BgJbACdAYuly9CI24zAAD+trhtlWnQL51wWL4hWAvH6Xw4pVlz609nbOOeg+6crk7XP8DcxBzTkeS5vUNcME6WdidWq+EG782iVya+FoXzBOq/KhOUKKH4MTdgAA=="
+  },
+  "/images/katalog/grafis-putih-biru/sampul.jpg": {
+    "small": "/images/optimized/katalog/grafis-putih-biru/sampul-small.webp",
+    "large": "/images/optimized/katalog/grafis-putih-biru/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwAgCdASoMABAAA8BgJYwCdAYu5ZudQhnoAAD9/NuiS4qwEN5iZNRWogXfiiMaYlCHrZc+4jsfKlW/LF5ZciNmOzw76u7jgYROq8cbgamXrUzYbNdmUKr2FygNigB9iMT35LBOUXAAAA=="
+  },
+  "/images/katalog/h-kadang-berkerah/detail-1.jpg": {
+    "small": "/images/optimized/katalog/h-kadang-berkerah/detail-1-small.webp",
+    "large": "/images/optimized/katalog/h-kadang-berkerah/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAABQAgCdASoMABAAA8BgJQBOgCPSXxMEjwZHFgAA/gF0QuQWjEAaYz0XuzLqiNk4IpM25kKdfyNU30gY/PuH5rv7lo/JQmFaNaigL+jaqgkZD3K6UAAAAA=="
+  },
+  "/images/katalog/h-kadang-berkerah/detail-2.jpg": {
+    "small": "/images/optimized/katalog/h-kadang-berkerah/detail-2-small.webp",
+    "large": "/images/optimized/katalog/h-kadang-berkerah/detail-2-large.webp",
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoMABAAA8BgJbAAAl1zbdC1IAAA/tvQ/0nqTJj7WPLE+mpc83biU7ukBbjzl4upw0b4yrjtwAqoYY7a7oFhdOYAAAA="
+  },
+  "/images/katalog/h-kadang-berkerah/detail-3.jpg": {
+    "small": "/images/optimized/katalog/h-kadang-berkerah/detail-3-small.webp",
+    "large": "/images/optimized/katalog/h-kadang-berkerah/detail-3-large.webp",
+    "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwAgCdASoMABAAA8BgJaACdAEekfGNSehoAAD+idY+afu6snwV2lMPu2HSaQdhXxyC4N1yx0zQgeG3HNW+N/Fb158DWJ0xGQYmsp8OQaPRvYVZNA316gH4ntdKt6cLkmJBie1IoAAAAA=="
+  },
+  "/images/katalog/h-kadang-berkerah/sampul.jpg": {
+    "small": "/images/optimized/katalog/h-kadang-berkerah/sampul-small.webp",
+    "large": "/images/optimized/katalog/h-kadang-berkerah/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoMABAAA8BgJQBdgCIZsuiMoMLAAP61XPBF4gd4MrNQxA31IOWmKg0bNgKu/FiZYC0dccsAMksoM9IagM4Agg6QM1waDrwEYhUHgkHjQYAAAA=="
+  },
+  "/images/katalog/h-kadang-tanpa-lengan/sampul.jpg": {
+    "small": "/images/optimized/katalog/h-kadang-tanpa-lengan/sampul-small.webp",
+    "large": "/images/optimized/katalog/h-kadang-tanpa-lengan/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoMABAAA8BgJQAAX0QdpQAxAHAA/Ge9uIQ8Dwz9Ns0H3s/XfWsTs3E6+5a0qLb4W23B1wBbWNvOwUL+TE5D4GNvF6c1MAAA"
+  },
+  "/images/katalog/kaos-atharva/detail-1.jpg": {
+    "small": "/images/optimized/katalog/kaos-atharva/detail-1-small.webp",
+    "large": "/images/optimized/katalog/kaos-atharva/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoMABAAA8BgJaACdADyfmV6bQAAyvTJcVNpJMUG9TzZim/FwZgxuahjbFE9is0/4VOG56X0LTrb7IvlVFIzF1ejTJ8EYAAA"
+  },
+  "/images/katalog/kaos-atharva/sampul.jpg": {
+    "small": "/images/optimized/katalog/kaos-atharva/sampul-small.webp",
+    "large": "/images/optimized/katalog/kaos-atharva/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABQAgCdASoMABAAA8BgJYgCdAEemwwPRG+O6XAA3aMbcQhyolV3PVEkPNT+yVKHOz8pVF3q7F1am6XTrkVSzQVy2XQ4mhhJCDy0n0RBAugAAA=="
+  },
+  "/images/katalog/kaos-biru-royal/detail-1.jpg": {
+    "small": "/images/optimized/katalog/kaos-biru-royal/detail-1-small.webp",
+    "large": "/images/optimized/katalog/kaos-biru-royal/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAQCdASoMABAAA8BgJbACdAELMR/1oAAA/uf8Q+iFK+6vg9CRGfDvx7n5b4dxHu7QLqQlZihPeEcz78Tx21os2hBhA8OXtS+o3e+GbwuXN96IM843Ue9eMh6Fef1zaFK1SqV1wjleV4zC2IAAAA=="
+  },
+  "/images/katalog/kaos-biru-royal/sampul.jpg": {
+    "small": "/images/optimized/katalog/kaos-biru-royal/sampul-small.webp",
+    "large": "/images/optimized/katalog/kaos-biru-royal/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAwAgCdASoMABAAA8BgJbACdAELZIYLM/yYAAD+4MJ+Zt7DoZC+fMbv0BZV1q76iXGG4sk9NnawTgogi9sClm5jTunCY+Y378YtIRpyA7xZ83HCRaEHo4oZA7p1Tuf4gePbz7MfVviMzb2AA2CJbwAA"
+  },
+  "/images/katalog/kaos-grafis-hitam/sampul.jpg": {
+    "small": "/images/optimized/katalog/kaos-grafis-hitam/sampul-small.webp",
+    "large": "/images/optimized/katalog/kaos-grafis-hitam/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAQCdASoMABAAA8BgJZwAAvkUowc0IPAA4C5VSZHvdnyvAOZh0iNjmFSP6gWCBDUyOTxbAYncdXHGjFyfjDdvkD43ZhWLoCvdBsUw6+SYhA3pTIaUgAAA"
+  },
+  "/images/katalog/kaos-olive/detail-1.jpg": {
+    "small": "/images/optimized/katalog/kaos-olive/detail-1-small.webp",
+    "large": "/images/optimized/katalog/kaos-olive/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACQAQCdASoMABAAA8BgJQAAXU9Vh8AA/mla2+Ky0X7L6O9cnx4CWAGt7DsB+5tIEZo6hnYOdo3fE/5wHYAAAA=="
+  },
+  "/images/katalog/kaos-olive/sampul.jpg": {
+    "small": "/images/optimized/katalog/kaos-olive/sampul-small.webp",
+    "large": "/images/optimized/katalog/kaos-olive/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAwAgCdASoMABAAA8BgJYwAAuzX56j4DrD0AAD+tayJGiJMYyKG7hXTQZ+X9cU1QmXm6X9tGOt22z7iYQxr7cb68ncLmiSYL2j6OoPP+nU49EQA"
+  },
+  "/images/katalog/milkman-motor/detail-1.jpg": {
+    "small": "/images/optimized/katalog/milkman-motor/detail-1-small.webp",
+    "large": "/images/optimized/katalog/milkman-motor/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABQAgCdASoMABAAA8BgJZgCdAYuva/HTMfDwiAA/uWzPujKSJX5WWuiBf4iDKJ59cBvand6dkmTDP5o/8PsuJHS9LhBvRo3IbTJYsykroaf3NmXx4D/wJt3AzP6QAAA"
+  },
+  "/images/katalog/milkman-motor/detail-2.jpg": {
+    "small": "/images/optimized/katalog/milkman-motor/detail-2-small.webp",
+    "large": "/images/optimized/katalog/milkman-motor/detail-2-large.webp",
+    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwAgCdASoMABAAA8BgJZgCdADp6/ARi35iAADN6JdMbjsFQoRpNkQlmVJis0yolCPaPKvMpUGNgWvGLNoYJBGOd9ZgptE1tk/pFNJYY5GtDJ1fQ6QzagAA"
+  },
+  "/images/katalog/milkman-motor/sampul.jpg": {
+    "small": "/images/optimized/katalog/milkman-motor/sampul-small.webp",
+    "large": "/images/optimized/katalog/milkman-motor/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAwAgCdASoMABAAA8BgJQBOgCIZqIT7wspkAAD+W+j5+lLbko0LZycvu+8T36I3CABtdpyHYBtVuEi8AoYPAaRNa5HX5jep+mopLFPTlM76E+AA"
+  },
+  "/images/katalog/mium-room-marun/detail-1.jpg": {
+    "small": "/images/optimized/katalog/mium-room-marun/detail-1-small.webp",
+    "large": "/images/optimized/katalog/mium-room-marun/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABwAgCdASoMABAAA8BgJYwCdAYwTwUQ1bYW7mwgAMo8JWDhasDZH2bMyZ5YQtvp+ciVB/xlFWgoyOU5q/sUbgGrqI2jD40ycfTBtzjuHRLQAA=="
+  },
+  "/images/katalog/mium-room-marun/detail-2.jpg": {
+    "small": "/images/optimized/katalog/mium-room-marun/detail-2-small.webp",
+    "large": "/images/optimized/katalog/mium-room-marun/detail-2-large.webp",
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwAgCdASoMABAAA8BgJZACdAEWgbHZ3O1cgADOO0X2ryUgCBhLYnGqSpSe8YCjeFuUaswGeD0NO91aGqcjUD439FdlH8RILdUsvqr1hv1SOgMATW8MO/SwCZlPntwAAAA="
+  },
+  "/images/katalog/mium-room-marun/sampul.jpg": {
+    "small": "/images/optimized/katalog/mium-room-marun/sampul-small.webp",
+    "large": "/images/optimized/katalog/mium-room-marun/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoMABAAA8BgJYgCdAYvWsLoLkgAAP3T1hv5TyNgLq2G+pu6Qn6M4QSQoYZXzPcR/ETzZSUMaD543BA7ybtjj38pxdIAachp2SiILn5fXj3pvV22Rv/ylWAtbMrAAA=="
+  },
+  "/images/katalog/nineball-hitam/detail-1.jpg": {
+    "small": "/images/optimized/katalog/nineball-hitam/detail-1-small.webp",
+    "large": "/images/optimized/katalog/nineball-hitam/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoMABAAA8BgJZwAA1WEVT4zKAAA/shvKz+jKDavwF0Wd/r9Q8vbchQBHwPRLKkVG4R2iubkD77ePqN3lq4f/azH/F2pk16AkuisoUuu1WTjqeES/YwcOwkDkkAAAA=="
+  },
+  "/images/katalog/nineball-hitam/sampul.jpg": {
+    "small": "/images/optimized/katalog/nineball-hitam/sampul-small.webp",
+    "large": "/images/optimized/katalog/nineball-hitam/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoMABAAA8BgJZQAAsR/gaRdlgAA/f0nBCKf4MWVKx8Zxp7FdqOcYnSHUWTXw8/hf/venyOA+deRK74ifmKQYwZC9x+QsrlHQm/AAA=="
+  },
+  "/images/katalog/rpai-biru-putih/detail-1.jpg": {
+    "small": "/images/optimized/katalog/rpai-biru-putih/detail-1-small.webp",
+    "large": "/images/optimized/katalog/rpai-biru-putih/detail-1-large.webp",
+    "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoMABAAA8BgJYwC7ACQn2YbTAAA/ffONlEpnry/mYYZWbvs+Kt+NQ//X+QHAXVMx4Tod+YVYz9H4Gd1PxomDXIvFYC9/hlg58D40pH+gQAWK6ECAMGAAA=="
+  },
+  "/images/katalog/rpai-biru-putih/sampul.jpg": {
+    "small": "/images/optimized/katalog/rpai-biru-putih/sampul-small.webp",
+    "large": "/images/optimized/katalog/rpai-biru-putih/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACQAgCdASoMABAAA8BgJYwCdH8AgszLfR5i+ngrAAD4WyxdwRveGFUk1UHqWT5wjMLOvCHP63KEFA41OOu+NaHBDPdsnYW2CsAHyik7o9MNWsJiMQxELH43VqtyEzYjQPD0BkTEU4AAAA=="
+  },
+  "/images/katalog/setelan-teal/sampul.jpg": {
+    "small": "/images/optimized/katalog/setelan-teal/sampul-small.webp",
+    "large": "/images/optimized/katalog/setelan-teal/sampul-large.webp",
+    "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABQAgCdASoOABAAA8BgJZgCdH8AgrSM9OUDxoAA/nXAQSfb1O4EnPgGrSVlR26Wp7XQl/S3ZCv/jru1Y5oevE/+vfoYU5TNxOGZrZzTF1jyt7D1KiXgONDeoB9cUZNkLHhDvgAA"
+  },
+  "/images/models/jersey-biru-putih.jpg": {
+    "small": "/images/optimized/models/jersey-biru-putih-small.webp",
+    "large": "/images/optimized/models/jersey-biru-putih-large.webp",
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoNABAAA8BgJZACdAERB5wpoAAA/uwJZsjeOrJAYWx9kNmmFd86neFgLicsED1mY6bqkn+ynOqJJPeecdjPW/W9EIVw5lF5bCaUTMzAQAA="
+  },
+  "/images/models/jersey-biru.jpg": {
+    "small": "/images/optimized/models/jersey-biru-small.webp",
+    "large": "/images/optimized/models/jersey-biru-large.webp",
+    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoNABAAA8BgJZACdAELVPae/TpiAAD+7AF4g5wTfk8KKSeXrF96RX4CohMy4YBuGNZZ7o2CNgWlvVnZ1UtEz0Op1htely/gAAA="
+  },
+  "/images/models/jersey-hijau.jpg": {
+    "small": "/images/optimized/models/jersey-hijau-small.webp",
+    "large": "/images/optimized/models/jersey-hijau-large.webp",
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAwAgCdASoMABAAA8BgJQBdgCPOqKKbKKTIAAD+4Z/OjVa6R/uCkIIw9rKy5de9JQHfTFI2yL6yO2dQrAaqt6obOtN21twxzubB8hlCD8bQ127YYAA="
+  },
+  "/images/models/jersey-kuning.jpg": {
+    "small": "/images/optimized/models/jersey-kuning-small.webp",
+    "large": "/images/optimized/models/jersey-kuning-large.webp",
+    "blur": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQAgCdASoMABAAA8BgJbAC7ADdptSsL7mAAP0DgY/STTaP6g1urOBVulSqGLb8HF9p3bdjpP8MhVrdduFpjXAUgThiphXm3lQ3TBHb8Vrs8V0nNp8BR3rtpWXfL/k8tcVwNNMqk3GFMv0+N2s4GjAA"
+  },
+  "/images/models/jersey-putih.jpg": {
+    "small": "/images/optimized/models/jersey-putih-small.webp",
+    "large": "/images/optimized/models/jersey-putih-large.webp",
+    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoNABAAA8BgJZQCo9EeYDuyY9cUAP7voWkP7125FfBpL60yD5sYxlhODqYqvwOrxtv3XU8I23r+ULgTgav0ZzhITHFF+NGC+gAAAA=="
+  },
+  "/images/bp-sport-emerald.jpg": {
+    "small": "/images/optimized/bp-sport-emerald-small.webp",
+    "large": "/images/optimized/bp-sport-emerald-large.webp",
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQABAAA8BgJbACdAEOIXmSq4AA/umkNRxbVbewjb3HME7NwdgqzmIyapWskqMqr+PQu50CVLPiPeXmvNjIEBjdrzndL+ZNS4JOm6D4AAA="
+  }
+}

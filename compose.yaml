@@ -1,0 +1,96 @@
+name: bp-sport-catalog
+
+services:
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DOCKER_DB_DATABASE:-web-katalog-jersy}
+      MYSQL_USER: ${DOCKER_DB_USERNAME:-bp_app}
+      MYSQL_PASSWORD: ${DOCKER_DB_PASSWORD:?Set DOCKER_DB_PASSWORD in .env.docker}
+      MYSQL_ROOT_PASSWORD: ${DOCKER_MYSQL_ROOT_PASSWORD:?Set DOCKER_MYSQL_ROOT_PASSWORD in .env.docker}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - 'MYSQL_PWD="$${MYSQL_PASSWORD}" mysql --host=127.0.0.1 --user="$${MYSQL_USER}" --database="$${MYSQL_DATABASE}" --execute="SELECT 1" >/dev/null 2>&1'
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_URL: http://localhost:${DOCKER_BACKEND_PORT:-8000}
+      DB_CONNECTION: mysql
+      DB_URL: ""
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DB_DATABASE: ${DOCKER_DB_DATABASE:-web-katalog-jersy}
+      DB_USERNAME: ${DOCKER_DB_USERNAME:-bp_app}
+      DB_PASSWORD: ${DOCKER_DB_PASSWORD:?Set DOCKER_DB_PASSWORD in .env.docker}
+      SESSION_DRIVER: database
+      CACHE_STORE: database
+      QUEUE_CONNECTION: database
+      LOG_CHANNEL: stderr
+      FRONTEND_URL: http://localhost:${DOCKER_FRONTEND_PORT:-3000},http://127.0.0.1:${DOCKER_FRONTEND_PORT:-3000}
+      SANCTUM_STATEFUL_DOMAINS: localhost:${DOCKER_FRONTEND_PORT:-3000},127.0.0.1:${DOCKER_FRONTEND_PORT:-3000},localhost:${DOCKER_BACKEND_PORT:-8000},127.0.0.1:${DOCKER_BACKEND_PORT:-8000}
+    ports:
+      - "127.0.0.1:${DOCKER_BACKEND_PORT:-8000}:80"
+    volumes:
+      - backend_storage:/var/www/backend/storage
+    depends_on:
+      mysql:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - php
+        - -r
+        - 'exit(@file_get_contents("http://127.0.0.1/up", false, stream_context_create(["http" => ["timeout" => 3]])) === false ? 1 : 0);'
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:${DOCKER_BACKEND_PORT:-8000}/api
+        NEXT_PUBLIC_SITE_URL: http://localhost:${DOCKER_FRONTEND_PORT:-3000}
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: http://localhost:${DOCKER_BACKEND_PORT:-8000}/api
+      NEXT_PUBLIC_SITE_URL: http://localhost:${DOCKER_FRONTEND_PORT:-3000}
+      API_SERVER_URL: http://backend/api
+    ports:
+      - "127.0.0.1:${DOCKER_FRONTEND_PORT:-3000}:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - 'fetch("http://127.0.0.1:3000/admin/login/").then(response => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))'
+      interval: 10s
+      timeout: 20s
+      retries: 6
+      start_period: 30s
+
+volumes:
+  mysql_data:
+  backend_storage:
