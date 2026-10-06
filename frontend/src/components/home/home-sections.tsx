@@ -214,11 +214,18 @@ export function CustomSection() {
   return <JerseyCustomizer />;
 }
 export function PreviousOrders({ designs }: { designs: JerseyDesign[] }) {
+  // Hindari menduplikasi desain yang sudah tampil di seksi 01 (popular)
+  const popularSlugs = new Set(designs.filter((d) => d.popular).map((d) => d.slug));
+  const distinctOrders = designs.filter((d) => d.previousOrder && !popularSlugs.has(d.slug));
+  const listToDisplay = distinctOrders.length >= 2
+    ? distinctOrders.slice(0, 3)
+    : designs.filter((d) => d.previousOrder).slice(0, 3);
+
   return (
     <section className="section container" id="hasil-produksi">
       <div className="section-heading">
         <div>
-          <span className="eyebrow">03 / HASIL PRODUKSI ASLI</span>
+          <span className="eyebrow">04 / HASIL PRODUKSI ASLI</span>
           <h2>
             Hasil jadi di lapangan.
             <br />
@@ -237,39 +244,46 @@ export function PreviousOrders({ designs }: { designs: JerseyDesign[] }) {
         </div>
       </div>
       <div className="stories-grid">
-        {designs.filter((design) => design.previousOrder).slice(0, 2).map((d, i) => (
-          <Link
-            href={`/katalog/${d.slug}/`}
-            className={`story story-${i}`}
-            key={d.slug}
-          >
-            <div className="story-top">
-              <span>TEAM COLLECTION / 0{i + 1}</span>
-              <ArrowUpRight size={24} />
-            </div>
-            <div className="story-shirts">
-              <Image variant="small"
-                src={d.images[0]}
-                alt={`Foto produk ${d.name}`}
-                width={350}
-                height={390}
-              />
-              <Image variant="small"
-                src={d.images[1] || d.images[0]}
-                alt={`Foto detail ${d.name}`}
-                width={350}
-                height={390}
-              />
-            </div>
-            <div className="story-caption">
-              <div>
-                <small>{d.category.toUpperCase()} / FOTO PRODUK</small>
-                <h3>{d.name} Collection</h3>
+        {listToDisplay.map((d, i) => {
+          const hasDistinctSecond = Boolean(d.images[1] && d.images[1] !== d.images[0]);
+          return (
+            <Link
+              href={`/katalog/${d.slug}/`}
+              className={`story story-${i % 2}`}
+              key={d.slug}
+            >
+              <div className="story-top">
+                <span>TEAM COLLECTION / 0{i + 1}</span>
+                <ArrowUpRight size={24} />
               </div>
-              <span>Lihat desain ↗</span>
-            </div>
-          </Link>
-        ))}
+              <div className={`story-shirts ${hasDistinctSecond ? "has-dual-shirts" : "single-shirt"}`}>
+                <Image
+                  variant="small"
+                  src={d.images[0]}
+                  alt={`Foto produk ${d.name}`}
+                  width={350}
+                  height={390}
+                />
+                {hasDistinctSecond && (
+                  <Image
+                    variant="small"
+                    src={d.images[1]}
+                    alt={`Foto detail ${d.name}`}
+                    width={350}
+                    height={390}
+                  />
+                )}
+              </div>
+              <div className="story-caption">
+                <div>
+                  <small>{d.category.toUpperCase()} / HASIL JADI TIM</small>
+                  <h3>{d.name}</h3>
+                </div>
+                <span>Lihat desain ↗</span>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </section>
   );
@@ -302,7 +316,7 @@ export function OrderingSteps() {
       <div className="container section">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">04 / CARA PEMESANAN</span>
+            <span className="eyebrow">05 / CARA PEMESANAN</span>
             <h2>
               Alur pesan ringkas.
               <br />

@@ -740,7 +740,7 @@ img {
 }
 .stories-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 25px;
 }
 .story {
@@ -751,6 +751,11 @@ img {
   overflow: hidden;
   min-height: 390px;
   border: 1px solid #ffffff12;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.story:hover {
+  transform: translateY(-4px);
+  border-color: var(--lime);
 }
 .story-1 {
   background: radial-gradient(ellipse at 50% 25%, #464646, #262626);
@@ -766,24 +771,41 @@ img {
 .story-shirts {
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 270px;
+  position: relative;
 }
 .story-shirts img {
-  width: 54%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(6px 10px 8px #00000066);
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
-.story-shirts img:first-child {
-  transform: rotate(-9deg);
+/* Mode gambar tunggal: baju tampil utuh & terpusat */
+.story-shirts.single-shirt img {
+  width: 72%;
+  transform: none;
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.5));
+}
+.story:hover .story-shirts.single-shirt img {
+  transform: scale(1.05);
+}
+/* Mode dua gambar: tampak depan & belakang */
+.story-shirts.has-dual-shirts img {
+  width: 52%;
+  filter: drop-shadow(6px 10px 8px #00000066);
+}
+.story-shirts.has-dual-shirts img:first-child {
+  transform: rotate(-8deg);
   margin-right: -25px;
 }
-.story-shirts img:last-child {
+.story-shirts.has-dual-shirts img:last-child {
   transform: rotate(8deg);
 }
-.story:hover .story-shirts img:first-child {
+.story:hover .story-shirts.has-dual-shirts img:first-child {
   transform: rotate(-12deg) scale(1.04);
+}
+.story:hover .story-shirts.has-dual-shirts img:last-child {
+  transform: rotate(11deg) scale(1.04);
 }
 .story-caption {
   display: flex;

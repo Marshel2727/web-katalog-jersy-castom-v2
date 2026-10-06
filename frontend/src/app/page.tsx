@@ -33,14 +33,14 @@ export default async function Home() {
       {/* 3. Ringkasan paket harga: Apakah sesuai anggaran? */}
       <PricingSummary />
 
-      {/* 4. Hasil produksi asli: Bagaimana kualitas hasil jadinya? */}
+      {/* 4. Pilihan bahan dry-fit & model kerah: Kualitas kain sebelum memesan */}
+      <MaterialsPreview materials={materials} collars={collars} />
+
+      {/* 5. Hasil produksi asli: Bukti nyata hasil jahitan pesanan tim */}
       <PreviousOrders designs={designs} />
 
-      {/* 5. Cara pesan: Apa yang perlu saya siapkan? */}
+      {/* 6. Cara pesan: Alur mudah memesan via WhatsApp */}
       <OrderingSteps />
-
-      {/* 6. Pilihan bahan dry-fit & model kerah */}
-      <MaterialsPreview materials={materials} collars={collars} />
 
       {/* 7. Ulasan & Testimoni Komunitas */}
       <Reviews testimonials={testimonials} />
