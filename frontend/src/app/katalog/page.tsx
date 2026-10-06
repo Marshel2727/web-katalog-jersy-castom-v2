@@ -42,11 +42,11 @@ export default async function CatalogPage() {
             </p>
 
             <div className="catalog-hero-actions">
-              <Link className="button" href="/#custom">
-                Coba Simulator Desain <ArrowRight size={15} />
-              </Link>
-              <Link className="button button-outline" href="/paket-harga">
+              <Link className="button" href="/paket-harga">
                 Cek Paket Harga <ArrowRight size={15} />
+              </Link>
+              <Link className="button button-outline" href="/faq">
+                Tanya Jawab (Q&A) <ArrowRight size={15} />
               </Link>
             </div>
 

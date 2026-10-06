@@ -22,7 +22,7 @@ export function MaterialsPreview({ materials, collars }: { materials: MaterialOp
     <section className="section container materials-preview">
       <div className="section-heading">
         <div>
-          <span className="eyebrow">DETAIL YANG BIKIN BEDA</span>
+          <span className="eyebrow">05 / PILIHAN BAHAN & KERAH</span>
           <h2>
             Pilih bahannya.
             <br />

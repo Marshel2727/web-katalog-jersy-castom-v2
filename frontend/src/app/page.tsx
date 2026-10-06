@@ -5,12 +5,10 @@ import {
   PricingSummary,
   PreviousOrders,
   OrderingSteps,
-  CustomSection,
   Reviews,
   ClosingCta,
 } from "@/components/home/home-sections";
 import { MaterialsPreview } from "@/components/materials/materials-preview";
-import { OrderingFaq } from "@/components/home/ordering-faq";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
@@ -41,15 +39,13 @@ export default async function Home() {
       {/* 5. Cara pesan: Apa yang perlu saya siapkan? */}
       <OrderingSteps />
 
-      {/* 6. Simulator opsional: Bagaimana kalau dibuat lebih personal? */}
-      <CustomSection />
-
-      {/* Pengenalan singkat bahan dry-fit & model kerah */}
+      {/* 6. Pilihan bahan dry-fit & model kerah */}
       <MaterialsPreview materials={materials} collars={collars} />
 
-      {/* 7. FAQ dan konsultasi: Masih ada hal yang perlu ditanyakan? */}
-      <OrderingFaq />
+      {/* 7. Ulasan & Testimoni Komunitas */}
       <Reviews testimonials={testimonials} />
+
+      {/* 8. Penutup & Konsultasi WhatsApp */}
       <ClosingCta />
     </main>
   );

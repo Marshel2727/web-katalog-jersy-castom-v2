@@ -25,17 +25,20 @@ export function Footer() {
             <Link href="/katalog">
               Jelajahi katalog <ArrowUpRight size={15} />
             </Link>
+            <Link href="/paket-harga">
+              Paket harga <ArrowUpRight size={15} />
+            </Link>
             <Link href="/#cara-pesan">
               Cara pemesanan <ArrowUpRight size={15} />
             </Link>
-            <Link href="/#ulasan">
-              Cerita pelanggan <ArrowUpRight size={15} />
+            <Link href="/faq">
+              Tanya Jawab (Q&A) <ArrowUpRight size={15} />
             </Link>
           </div>
           <div>
             <span className="eyebrow">PUNYA IDE DESAIN?</span>
-            <Link href="/#custom" className="footer-contact">
-              Yuk, kita wujudkan. ↗
+            <Link href="/katalog" className="footer-contact">
+              Pilih Desain Impianmu ↗
             </Link>
             <small>Desain bebas. Karakter tetap kamu.</small>
           </div>
