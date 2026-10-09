@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Sparkles } from "lucide-react";
-import type { Field } from "./resource-config";
+import type { Field } from "./catalog-resource-config";
 
 export function FormField({ field, value, onNameChange, onSlugInput, onAutoSlug }: { field: Field; value?: unknown; onNameChange?: (value: string) => void; onSlugInput?: () => void; onAutoSlug?: () => void }) {
   const initial = value ?? field.default ?? (field.type === "checkbox" ? false : "");

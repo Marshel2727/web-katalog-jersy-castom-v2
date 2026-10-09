@@ -9,7 +9,7 @@ import {
   Settings,
   ArrowUpRight,
 } from "lucide-react";
-import { resourceConfigs } from "@/components/admin/resource-config";
+import { resourceConfigs } from "@/components/admin/catalog-resource-config";
 
 const resourceIcons: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   categories: Tags,

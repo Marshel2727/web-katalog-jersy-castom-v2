@@ -19,8 +19,8 @@ import { deleteEntity, listEntities, readEntity } from "@/lib/api/admin";
 import type { AdminEntity, EntityName, Query } from "@/lib/api/types";
 import { usePage } from "@/lib/api/use-page";
 import { Pagination } from "@/components/ui/pagination";
-import { resourceConfigs } from "./resource-config";
-import { EntityForm } from "./entity-form";
+import { resourceConfigs } from "./catalog-resource-config";
+import { EntityForm } from "./catalog-editor-modal";
 import { ErrorMessage } from "./error-message";
 import { useSessionError } from "./auth-gate";
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FaqBrowser } from "@/components/faq/faq-browser";
-import { HelpCircle, Check, Sparkles } from "lucide-react";
+import { HelpCircle, Check } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tanya Jawab (Q&A) Seputar Pemesanan Jersey Custom",

@@ -19,7 +19,7 @@ import {
 import { currentAdmin, logout } from "@/lib/api/admin";
 import { ApiError } from "@/lib/api/http";
 import type { AdminUser } from "@/lib/api/types";
-import { resourceConfigs } from "./resource-config";
+import { resourceConfigs } from "./catalog-resource-config";
 import { ErrorMessage } from "./error-message";
 
 const resourceIcons: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -58,11 +58,12 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
   const [leaving, setLeaving] = useState(false);
   const [attempt, setAttempt] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const isLogin = path === "/admin/login/" || path === "/admin/login";
-
-  useEffect(() => {
+  const [prevPath, setPrevPath] = useState(path);
+  if (prevPath !== path) {
+    setPrevPath(path);
     setSidebarOpen(false);
-  }, [path]);
+  }
+  const isLogin = path === "/admin/login/" || path === "/admin/login";
 
   useEffect(() => {
     if (isLogin) return;

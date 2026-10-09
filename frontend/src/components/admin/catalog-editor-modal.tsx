@@ -8,9 +8,9 @@ import { all } from "@/lib/api/catalog";
 import { appendOptions, cleanFormData, slugify } from "@/lib/api/form-data";
 import type { AdminEntity, CategoryDto, DesignDto, DesignImageDto, EntityName, PricingOptionDto, PricingPackageDto } from "@/lib/api/types";
 import { useSessionError } from "./auth-gate";
-import { resourceConfigs } from "./resource-config";
+import { resourceConfigs } from "./catalog-resource-config";
 import { ErrorMessage } from "./error-message";
-import { FormField } from "./form-field";
+import { FormField } from "./admin-form-field";
 import { PricingOptions } from "./pricing-options";
 import { DesignImages } from "./design-images";
 
