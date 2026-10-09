@@ -39,6 +39,8 @@ web-katalog-jersy-castom/
 │   ├── Dockerfile
 │   └── composer.json
 ├── deploy/                      # Panduan produksi dan konfigurasi Caddy
+├── deploy-backup/               # Backup SQL yang disertakan dalam repository
+│   └── web-katalog-jersy-20261010-070458.sql
 ├── compose.yaml                 # Docker lokal: frontend, backend, dan MySQL
 ├── compose.production.yaml      # VPS: backend, MySQL, dan HTTPS Caddy
 ├── .env.docker.example          # Contoh konfigurasi Docker lokal
@@ -57,7 +59,7 @@ Jalankan npm dari `frontend/`, Composer/Artisan dari `backend/`, dan Docker Comp
 
 ## Pengembangan lokal: backend Docker dan frontend npm
 
-Contoh berikut menggunakan PowerShell. Ganti direktori proyek jika checkout berada di lokasi lain. Jalankan setiap tahap sampai berhasil sebelum melanjutkan.
+Contoh berikut menggunakan PowerShell. Ganti direktori proyek jika checkout berada di lokasi lain. Jalankan setiap tahap sampai berhasil sebelum melanjutkan. Salin hanya isi kotak kode, tanpa prompt `PS C:\...>`, `mysql>`, atau teks hasil terminal.
 
 ### 1. Siapkan konfigurasi Docker
 
@@ -75,6 +77,18 @@ Script setup membuat `backend/.env` jika belum ada, mengisi `APP_KEY` yang koson
 
 ```powershell
 docker compose --env-file .env.docker up -d --build --wait mysql backend
+```
+
+Setelah service aktif, pilih satu alur:
+
+| Pilihan | Langkah |
+| --- | --- |
+| Database kosong | Jalankan migration di bawah, buat admin, lalu isi konten sendiri. |
+| Memakai data dari backup | Ikuti [import SQL ke Docker](#import-ke-mysql-docker) terlebih dahulu; gunakan akun admin yang ikut dipulihkan jika tersedia. |
+
+Untuk pilihan **database kosong**:
+
+```powershell
 docker compose --env-file .env.docker exec --user www-data backend php artisan migrate
 ```
 
@@ -82,13 +96,13 @@ Migrasi dijalankan secara eksplisit; startup container tidak menjalankan migrasi
 
 ### 3. Buat akun admin
 
-Untuk instalasi baru atau saat membutuhkan akun admin baru:
+Untuk pilihan database kosong atau saat membutuhkan akun admin baru:
 
 ```powershell
 docker compose --env-file .env.docker exec --user www-data backend php artisan app:create-admin
 ```
 
-Perintah meminta nama, email, password minimal 12 karakter, dan konfirmasi password. Tidak ada akun/password admin bawaan. Gunakan akun yang sudah ada jika database sebelumnya masih dipakai.
+Perintah meminta nama, email, password minimal 12 karakter, dan konfirmasi password. Tidak ada akun/password admin bawaan. Setelah import backup, gunakan email/password akun admin yang ikut dipulihkan; buat akun baru hanya jika diperlukan.
 
 ### 4. Jalankan frontend pada terminal terpisah
 
@@ -116,7 +130,7 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3001
 | API katalog | [http://localhost:8001/api/designs](http://localhost:8001/api/designs) |
 | Health check Laravel | [http://localhost:8001/up](http://localhost:8001/up) |
 
-Login ke admin, lalu isi **Pengaturan toko**, kategori, desain, paket harga, bahan, kerah, dan ulasan. Instalasi baru tidak berisi konten bawaan; `DatabaseSeeder` tidak mengisi atau memulihkan katalog. Data lama tetap tersedia jika memakai volume/database yang sudah berisi konten.
+Untuk database kosong, login ke admin lalu isi **Pengaturan toko**, kategori, desain, paket harga, bahan, kerah, dan ulasan. `DatabaseSeeder` tidak mengisi atau memulihkan katalog. Jika memilih import SQL, konten berasal dari backup yang dipulihkan; jika memakai volume/database lama, data yang sudah tersimpan tetap tersedia.
 
 Gunakan hostname yang sama untuk frontend dan backend saat login, misalnya keduanya `localhost`. Jika port berubah, sesuaikan `.env.docker`, URL pada `frontend/.env.local`, dan port perintah npm. Restart frontend setelah mengubah environment.
 
@@ -136,7 +150,7 @@ Frontend Docker menjalankan build produksi. Perubahan kode frontend memerlukan r
 
 ## Alternatif: backend lokal dengan Laragon
 
-Ikuti [panduan backend](backend/README.md) untuk membuat database MySQL, memasang dependensi Composer, mengatur `.env`, membuat `APP_KEY`, menjalankan migrasi, membuat link storage, dan membuat admin.
+Untuk database kosong, ikuti [panduan backend](backend/README.md) sampai migrasi dan pembuatan admin. Untuk memakai data lama, siapkan dependensi Composer dan environment Laravel, lalu ikuti [import SQL ke Laragon](#import-ke-mysql-laragon) sebelum menjalankan migrasi atau membuat akun admin baru.
 
 Panduan backend lokal memakai port backend **8000** dan frontend **3000**. Untuk mengikuti konfigurasi tersebut, isi `frontend/.env.local`:
 
@@ -147,6 +161,92 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
 Jalankan `composer run dev` dari `backend/` dan `npm.cmd run dev -- --port 3000` dari `frontend/` pada terminal terpisah. Template backend sudah mengizinkan origin frontend port 3000; jika memakai port berbeda, sesuaikan `FRONTEND_URL` dan `SANCTUM_STATEFUL_DOMAINS` di `backend/.env`.
+
+## Memulihkan data dari backup SQL
+
+Repository menyertakan [web-katalog-jersy-20261010-070458.sql](deploy-backup/web-katalog-jersy-20261010-070458.sql), hasil ekspor MySQL Laragon pada **10 Oktober 2026**. File berisi struktur tabel dan data saat ekspor, termasuk tabel katalog, pengaturan toko, serta akun pengguna. Clone repository membawa file SQL tersebut, tetapi **tidak otomatis mengimpornya ke MySQL**.
+
+Backup ini merupakan snapshot: perubahan database setelah ekspor tidak ikut tersimpan otomatis. Ekspor ulang jika membutuhkan data terbaru. File SQL ini sudah dilacak Git, sedangkan file backup baru di folder `deploy-backup/` tetap diabaikan oleh aturan `.gitignore`.
+
+Gunakan **database tujuan kosong**. Dump memuat `DROP TABLE IF EXISTS`, sehingga import dapat mengganti tabel beserta data yang sudah ada. Jika target sudah berisi konten, buat backup database dan gambar target sebelum melakukan pemulihan.
+
+Dump juga memuat `CREATE DATABASE` dan `USE` untuk **`web-katalog-jersy`**. Contoh berikut memakai nama tersebut; mengganti nama database pada konfigurasi aplikasi saja tidak mengubah target di dalam SQL. Untuk dump ini, gunakan MySQL 8.4 agar sesuai dengan sumber ekspor dan image Docker proyek.
+
+### Import ke MySQL Laragon
+
+Aktifkan MySQL Laragon. Dari PowerShell, masuk ke folder backup lalu buka client MySQL:
+
+```powershell
+cd "C:\PROJECT WEB\web-katalog-jersy-castom\deploy-backup"
+& "C:\laragon\bin\mysql\mysql-8.4.3-winx64\bin\mysql.exe" --host=127.0.0.1 --port=3306 --user=root --password --default-character-set=utf8mb4
+```
+
+Sesuaikan lokasi `mysql.exe`, port, dan username jika instalasi Laragon berbeda. Masukkan password saat diminta; jika akun tidak memakai password, langsung tekan Enter.
+
+Setelah prompt MySQL muncul, jalankan perintah berikut **di client MySQL**, bukan di PowerShell. Jalankan satu per satu dan berhenti jika import menampilkan error:
+
+```sql
+SOURCE web-katalog-jersy-20261010-070458.sql;
+SHOW TABLES FROM `web-katalog-jersy`;
+EXIT;
+```
+
+`SOURCE` membaca file dari folder kerja yang dipilih sebelum membuka client. Setelah keluar, atur koneksi pada `backend/.env` sesuai database yang dipulihkan:
+
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=web-katalog-jersy
+DB_USERNAME=root
+```
+
+Isi `DB_PASSWORD` secara privat sesuai akun MySQL. Setelah dependensi Composer dan `APP_KEY` tersedia, jalankan dari PowerShell:
+
+```powershell
+cd "C:\PROJECT WEB\web-katalog-jersy-castom\backend"
+php artisan config:clear
+php artisan migrate
+php artisan storage:link
+```
+
+Migration menerapkan perubahan struktur yang belum tercatat dalam backup; migration tidak menggantikan import data. Gunakan akun admin yang ikut dipulihkan jika tersedia. Jika perlu akun baru, jalankan `php artisan app:create-admin`.
+
+### Import ke MySQL Docker
+
+Jalankan dari root proyek setelah [setup environment Docker](#1-siapkan-konfigurasi-docker). Pastikan `DOCKER_DB_DATABASE=web-katalog-jersy` pada `.env.docker` agar database aplikasi cocok dengan target dump. Database Docker dan Laragon tetap terpisah; perintah ini mengimpor salinan data ke MySQL Docker.
+
+```powershell
+cd "C:\PROJECT WEB\web-katalog-jersy-castom"
+docker compose --env-file .env.docker up -d --wait mysql
+docker compose --env-file .env.docker cp .\deploy-backup\web-katalog-jersy-20261010-070458.sql mysql:/tmp/catalog-restore.sql
+```
+
+Setelah penyalinan berhasil, import melalui shell di dalam container:
+
+```powershell
+docker compose --env-file .env.docker exec -T mysql sh -c 'MYSQL_PWD="$MYSQL_PASSWORD" mysql --user="$MYSQL_USER" --default-character-set=utf8mb4 "$MYSQL_DATABASE" < /tmp/catalog-restore.sql'
+if ($LASTEXITCODE -ne 0) {
+    throw "Import SQL gagal. Periksa pesan error sebelum melanjutkan."
+}
+```
+
+Sesudah import berhasil, jalankan backend dan migration yang belum diterapkan:
+
+```powershell
+docker compose --env-file .env.docker up -d --build --wait backend
+docker compose --env-file .env.docker exec --user www-data backend php artisan migrate
+```
+
+Entrypoint backend Docker membuat link storage. Akun admin dalam dump ikut dipulihkan; jika perlu akun baru, gunakan perintah `app:create-admin` pada bagian setup. Jangan menjalankan `migrate:fresh` atau `migrate:refresh` karena perintah tersebut membangun ulang tabel dan dapat menghilangkan data yang dipulihkan.
+
+### Gambar dan pemeriksaan hasil
+
+SQL menyimpan path gambar, bukan file fotonya. Untuk sumber Laragon, salin juga seluruh isi `backend/storage/app/public/` dari instalasi sumber dengan struktur subfolder yang sama. Pada tujuan Laragon, letakkan di folder tersebut dan jalankan `storage:link`. Pada Docker, gambar harus masuk ke `storage/app/public/` di service backend, yang menggunakan volume `backend_storage`; gunakan prosedur arsip/pemulihan di [panduan deploy](deploy/README.md#4-pulihkan-database-dan-gambar-yang-sudah-ada).
+
+Setelah database dan gambar dipulihkan, periksa katalog, paket harga, pengaturan toko, foto produk, serta login admin. Pastikan `APP_URL` menunjuk alamat backend tujuan agar URL gambar sesuai. `DatabaseSeeder` tetap kosong, sehingga `db:seed` tidak memulihkan data atau gambar yang hilang.
+
+Referensi perintah import: [MySQL 8.4 — Reloading SQL-Format Backups](https://dev.mysql.com/doc/refman/8.4/en/reloading-sql-format-dumps.html).
 
 ## Konfigurasi environment
 
@@ -240,7 +340,7 @@ Konfigurasi proyek memisahkan frontend dan backend:
 - **Vercel:** Root Directory `frontend`, Node.js 24.x, serta environment API dan URL website. Konfigurasi tersedia di `frontend/vercel.json` dan contoh environment di `frontend/.env.production.example`.
 - **VPS:** Laravel, MySQL 8.4, dan Caddy untuk HTTPS melalui `compose.production.yaml`. Salin `.env.production.example` ke `.env.production` dan isi nilainya sesuai domain/server.
 
-Template produksi menggunakan frontend dan API pada domain induk yang sama untuk session cookie admin. Compose produksi berdiri sendiri dan tidak digabung dengan Compose lokal. Menyalin source saja tidak memindahkan database atau gambar.
+Template produksi menggunakan frontend dan API pada domain induk yang sama untuk session cookie admin. Compose produksi berdiri sendiri dan tidak digabung dengan Compose lokal. Clone repository menyertakan snapshot SQL di atas; database aktif tetap perlu diimpor dan gambar dipindahkan terpisah.
 
 Ikuti [panduan deployment Vercel dan VPS](deploy/README.md) untuk domain, environment, backup/restore, migrasi, serta pemeriksaan setelah deploy.
 

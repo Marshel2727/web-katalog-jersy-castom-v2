@@ -29,7 +29,22 @@ docker compose --env-file .env.docker cp backend:/tmp/public-images.tar.gz .\dep
 Get-Item .\deploy-backup\database.sql, .\deploy-backup\public-images.tar.gz | Select-Object Name, Length
 ```
 
-Jalankan bertahap dan berhenti bila ada error. Backup SQL berisi akun admin dan konten yang sudah ada; jangan mengunggahnya ke Git. Folder `deploy-backup/` sudah diabaikan Git. Backup ini tidak menyalin cache/log/session file Laravel.
+Jalankan bertahap dan berhenti bila ada error. Backup SQL berisi akun admin dan konten yang sudah ada, sehingga backup terbaru perlu disimpan secara privat. Folder `deploy-backup/` diabaikan Git untuk file baru; snapshot `web-katalog-jersy-20261010-070458.sql` sudah dilacak dan disertakan di repository. Backup ini tidak menyalin cache/log/session file Laravel.
+
+### Alternatif: memakai snapshot SQL Laragon dari repository
+
+File [web-katalog-jersy-20261010-070458.sql](../deploy-backup/web-katalog-jersy-20261010-070458.sql) berisi struktur dan data Laragon pada 10 Oktober 2026. Jika memilih file ini, lewati ekspor SQL Docker di atas dan gunakan nama file tersebut pada langkah pemulihan. Untuk import lokal ke Laragon atau Docker, lihat [panduan pemulihan database](../README.md#memulihkan-data-dari-backup-sql).
+
+Siapkan arsip gambar dari **instalasi Laravel Laragon yang menjadi sumber data**, bukan dari volume Docker yang berbeda. Dengan file gambar sumber tersedia di `backend/storage/app/public/`, jalankan dari root proyek di PowerShell:
+
+```powershell
+tar -czf .\deploy-backup\public-images.tar.gz -C .\backend\storage\app\public .
+if ($LASTEXITCODE -ne 0) {
+    throw "Pembuatan arsip gambar gagal. Periksa folder sumber."
+}
+```
+
+SQL tidak memuat file foto. Pertahankan struktur subfolder gambar dan gunakan arsip yang sesuai dengan snapshot database. Snapshot dalam repository tidak diperbarui otomatis ketika konten di MySQL berubah; buat ekspor baru jika ingin memindahkan data terbaru.
 
 Simpan juga nilai `APP_KEY` dari `backend/.env` secara privat untuk dipakai pada VPS. Jangan masukkan file `.env` ke repository, image, atau environment frontend Vercel.
 
@@ -76,7 +91,9 @@ Jangan lanjutkan bila validasi/build gagal. Compose produksi tidak membaca `back
 
 Langkah ini ditujukan untuk database VPS baru yang belum berisi konten. Bila sudah ada database produksi, buat backup database dan gambar produksi sebelum melakukan pemulihan karena import SQL dapat mengganti tabel yang sudah ada.
 
-Upload dua file backup dari PowerShell. Ganti `user` dan `IP_VPS` dengan akun/IP VPS milikmu; folder project di VPS harus sudah ada dan bisa ditulis akun tersebut:
+Pilih SQL hasil ekspor Docker (`deploy-backup/database.sql`) atau snapshot Laragon dalam repository (`deploy-backup/web-katalog-jersy-20261010-070458.sql`). Snapshot Laragon memuat `CREATE DATABASE` dan `USE web-katalog-jersy`; untuk file itu, isi `DB_DATABASE=web-katalog-jersy` pada `.env.production`. Mengganti nama database pada perintah client saja tidak mengganti target di dalam SQL.
+
+Upload SQL pilihan dan arsip gambar yang sesuai dari PowerShell. Jika repository sudah di-clone di VPS, snapshot SQL sudah tersedia; arsip gambar tetap perlu dipindahkan. Ganti `user` dan `IP_VPS` dengan akun/IP VPS milikmu; folder project di VPS harus sudah ada dan bisa ditulis akun tersebut:
 
 ```powershell
 cd "C:\PROJECT WEB\web-katalog-jersy-castom"
@@ -87,10 +104,12 @@ Lanjutkan di shell VPS yang sudah mempunyai fungsi `dc`:
 
 ```bash
 cd /opt/bp-sport
+# Pilih satu file SQL. Ganti menjadi deploy-backup/database.sql untuk ekspor Docker terbaru.
+backup_sql="deploy-backup/web-katalog-jersy-20261010-070458.sql"
 chmod 700 deploy-backup
-chmod 600 deploy-backup/database.sql deploy-backup/public-images.tar.gz
+chmod 600 "$backup_sql" deploy-backup/public-images.tar.gz
 
-dc cp deploy-backup/database.sql mysql:/tmp/catalog-backup.sql
+dc cp "$backup_sql" mysql:/tmp/catalog-backup.sql
 dc exec -T mysql sh -c 'MYSQL_PWD="$MYSQL_PASSWORD" mysql --user="$MYSQL_USER" "$MYSQL_DATABASE" < /tmp/catalog-backup.sql'
 
 dc up -d --wait backend
@@ -109,7 +128,7 @@ Ganti hostname pada kedua perintah curl dengan `API_DOMAIN` milikmu. Akun admin 
 
 Jika **tidak memindahkan data lokal**, lewati import SQL/arsip, jalankan backend, migrasi, buat admin, lalu jalankan Caddy. Database baru tidak mempunyai konten bawaan; isi pengaturan toko dan katalog melalui admin.
 
-Volume produksi memakai nama project `bp-sport-production`, terpisah dari `bp-sport-catalog` lokal. Menyalin repository tidak memindahkan volume; dua file backup di atas yang membawa konten dan gambar. Jangan memakai `down -v` untuk stack yang datanya ingin disimpan.
+Volume produksi memakai nama project `bp-sport-production`, terpisah dari `bp-sport-catalog` lokal. Menyalin repository tidak memindahkan volume atau mengimpor SQL otomatis; import SQL pilihan dan pemulihan arsip gambar yang membawa konten serta foto ke server tujuan. Jangan memakai `down -v` untuk stack yang datanya ingin disimpan.
 
 ## 5. Frontend di Vercel
 
